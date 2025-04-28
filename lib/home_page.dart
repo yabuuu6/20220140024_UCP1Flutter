@@ -37,4 +37,50 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFFFFAF3),
+      appBar: AppBar(
+        toolbarHeight: 90,
+        backgroundColor: const Color.fromARGB(255, 104, 96, 248),
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            const CircleAvatar(
+              radius: 30,
+              backgroundImage: AssetImage('assets/avatar.png'),
+            ),
+            const SizedBox(width: 12),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Selamat Datang',
+                  style: TextStyle(color: Colors.white, fontSize: 14),
+                ),
+                Text(
+                  userName,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                Text(
+                  role,
+                  style: const TextStyle(color: Colors.white, fontSize: 12),
+                ),
+              ],
+            ),
+            const Spacer(),
+            IconButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/login');
+              },
+              icon: const Icon(Icons.logout, color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+     
