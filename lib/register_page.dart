@@ -45,4 +45,75 @@ class _RegisterPageState extends State<RegisterPage> {
                     color: Colors.black87,
                   ),
                 ),
-               
+                const SizedBox(height: 30),
+                _buildTextField(
+                  controller: _nameController,
+                  label: 'Nama Lengkap',
+                  hintText: 'Masukkan nama lengkap',
+                  icon: Icons.person,
+                  validatorMessage: 'Nama lengkap tidak boleh kosong',
+                ),
+                
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: _buildTextField(
+                        controller: _emailController,
+                        label: 'Email',
+                        hintText: 'Masukkan email',
+                        icon: Icons.email,
+                        validatorMessage: 'Email tidak boleh kosong',
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: _buildTextField(
+                        controller: _phoneController,
+                        label: 'No HP',
+                        hintText: 'Masukkan no hp',
+                        icon: Icons.phone,
+                        validatorMessage: 'No HP tidak boleh kosong',
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: _buildTextField(
+                        controller: _passwordController,
+                        label: 'Password',
+                        hintText: 'Masukkan password',
+                        icon: Icons.lock,
+                        validatorMessage: 'Password tidak boleh kosong',
+                        obscureText: _obscurePassword,
+                        toggleVisibility: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: _buildTextField(
+                        controller: _confirmPasswordController,
+                        label: 'Konfirmasi Password',
+                        hintText: 'Masukkan konfirmasi password',
+                        icon: Icons.lock,
+                        validatorMessage: 'Konfirmasi password tidak boleh kosong',
+                        obscureText: _obscureConfirmPassword,
+                        toggleVisibility: () {
+                          setState(() {
+                            _obscureConfirmPassword = !_obscureConfirmPassword;
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+
+                
