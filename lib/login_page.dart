@@ -24,4 +24,15 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   bool _obscurePassword = true;
 
+  @override
+  void initState() {
+    super.initState();
+    if (widget.registeredEmail != null) {
+      _emailController.text = widget.registeredEmail!;
+    }
+    if (widget.registeredPassword != null) {
+      _passwordController.text = widget.registeredPassword!;
+    }
+  }
+
   
