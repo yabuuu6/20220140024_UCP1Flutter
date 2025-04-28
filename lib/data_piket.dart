@@ -245,4 +245,57 @@ class _DataPiketPageState extends State<DataPiketPage> {
                     ),
                   ),
                 ),
-                
+                const SizedBox(width: 16),
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: _addTask,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 104, 96, 248),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                    child: const Text(
+                      'Tambah',
+                      style: TextStyle(
+                          color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            if (_taskError != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 4, left: 8),
+                child: Text(
+                  _taskError!,
+                  style: const TextStyle(color: Colors.red, fontSize: 12),
+                ),
+              ),
+            const SizedBox(height: 24),
+            const Text(
+              'Daftar Tugas Piket',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Expanded(
+              child: _tasks.isEmpty
+                  ? const Center(
+                      child: Text(
+                        'Belum ada Data',
+                        style: TextStyle(color: Colors.grey, fontSize: 16),
+                      ),
+                    )
+                  : ListView.builder(
+                      itemCount: _tasks.length,
+                      itemBuilder: (context, index) => _buildTaskItem(index),
+                    ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
