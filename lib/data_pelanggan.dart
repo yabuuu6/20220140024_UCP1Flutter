@@ -86,3 +86,21 @@ class _DataPelangganPageState extends State<DataPelangganPage> {
     });
   }
 
+  void _resetForm() {
+    setState(() {
+      _nameController.clear();
+      _emailController.clear();
+      _phoneController.clear();
+      _addressController.clear();
+      _provinceController.clear();
+      _zipcodeController.clear();
+      _nameError = null;
+      _emailError = null;
+      _phoneError = null;
+      _addressError = null;
+      _provinceError = null;
+      _zipcodeError = null;
+    });
+  }
+
+ 
