@@ -19,4 +19,87 @@ class DetailPelangganPage extends StatelessWidget {
     required this.zipcode,
   });
 
- 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const DataPelangganPage()),
+            );
+          },
+        ),
+        title: const Text(
+          'Detail Pelanggan',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        centerTitle: true,
+        toolbarHeight: 90,
+        backgroundColor: const Color.fromARGB(255, 104, 96, 248),
+      ),
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Center(
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/profil.jpg'),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: Text(
+                name,
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Center(child: Text(email, style: const TextStyle(fontSize: 16))),
+            const SizedBox(height: 8),
+            Center(child: Text(phone, style: const TextStyle(fontSize: 16))),
+            const SizedBox(height: 16),
+            const Text(
+              'Alamat',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 4),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(address, style: const TextStyle(fontSize: 16)),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Provinsi',
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 4),
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(province, style: const TextStyle(fontSize: 16)),
+                      ),
+                    ],
+                  ),
+                ),
+                
