@@ -172,4 +172,50 @@ class _LoginPageState extends State<LoginPage> {
                   });
                 },
               ),
-              
+              const SizedBox(height: 30),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 104, 96, 248),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                  ),
+                  onPressed: _login,
+                  child: const Text(
+                    'Masuk',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Center(
+                child: GestureDetector(
+                  onTap: _goToRegister,
+                  child: const Text.rich(
+                    TextSpan(
+                      text: 'Belum memiliki akun? ',
+                      style: TextStyle(color: Colors.black87),
+                      children: [
+                        TextSpan(
+                          text: 'Daftar disini!',
+                          style: TextStyle(color: Color.fromARGB(255, 104, 96, 248)),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+}
