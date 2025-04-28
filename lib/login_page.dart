@@ -67,4 +67,60 @@ class _LoginPageState extends State<LoginPage> {
       MaterialPageRoute(builder: (context) => const RegisterPage()),
     );
   }
-  
+  Widget _buildTextField({
+  required TextEditingController controller,
+  required String label, 
+  required String hintText,
+  required IconData icon,
+  required String validatorMessage,
+  bool obscureText = false,
+  VoidCallback? toggleVisibility,
+}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        label,
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: Colors.black87,
+        ),
+      ),
+      const SizedBox(height: 8),
+      TextFormField(
+        controller: controller,
+        obscureText: obscureText,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return validatorMessage;
+          }
+          return null;
+        },
+        decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: const TextStyle(color: Colors.grey),
+          prefixIcon: Icon(icon, color: Color.fromARGB(255, 62, 62, 61)),
+          suffixIcon: toggleVisibility != null
+              ? IconButton(
+                  icon: Icon(
+                    obscureText ? Icons.visibility_off : Icons.visibility,
+                    color: Color.fromARGB(255, 62, 62, 61),
+                  ),
+                  onPressed: toggleVisibility,
+                )
+              : null,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 104, 96, 248)),
+          ),
+        ),
+      ),
+    ],
+  );
+}
+
+ 
