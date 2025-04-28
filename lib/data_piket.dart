@@ -208,4 +208,41 @@ class _DataPiketPageState extends State<DataPiketPage> {
                 ),
               ),
             ),
-            
+            if (_dateError != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 4, left: 8),
+                child: Text(
+                  _dateError!,
+                  style: const TextStyle(color: Colors.red, fontSize: 12),
+                ),
+              ),
+            const SizedBox(height: 16),
+            const Text(
+              'Tugas Piket',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    height: 55,
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(8.0),
+                      color: Colors.white,
+                    ),
+                    child: TextField(
+                      controller: _taskController,
+                      style: const TextStyle(color: Colors.black),
+                      decoration: const InputDecoration(
+                        hintText: 'Masukkan tugas piket',
+                        hintStyle: TextStyle(color: Colors.grey),
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ),
+                
