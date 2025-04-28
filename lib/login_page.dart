@@ -123,4 +123,30 @@ class _LoginPageState extends State<LoginPage> {
   );
 }
 
- 
+  @override
+  Widget build(BuildContext context) {
+  return Scaffold(
+    backgroundColor: Color.fromARGB(255, 255, 255, 255),
+    body: SafeArea(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 40),
+              const Center(child: FlutterLogo(size: 100)),
+              const SizedBox(height: 40),
+              const Center(
+                child: Text(
+                  'SELAMAT DATANG KEMBALI',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+  }
