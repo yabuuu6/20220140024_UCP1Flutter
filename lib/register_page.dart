@@ -116,4 +116,54 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
 
-                
+                const SizedBox(height: 30),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 104, 96, 248),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                    ),
+                    onPressed: _handleRegister,
+                    child: const Text(
+                      'Daftar',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Color.fromARGB(255, 255, 255, 255), // Change "Colors.red" to your desired color
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Sudah memiliki akun? ', style: TextStyle(color: Colors.black87)),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const LoginPage()),
+                        );
+                      },
+                      child: const Text(
+                        'Login disini!',
+                        style: TextStyle(color: Color.fromARGB(255, 104, 96, 248)),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      )
+    )
+  );
+}
+ 
+ 
