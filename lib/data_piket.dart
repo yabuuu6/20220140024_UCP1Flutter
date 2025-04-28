@@ -147,4 +147,65 @@ class _DataPiketPageState extends State<DataPiketPage> {
     );
   }
 
-  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        toolbarHeight: 90,
+        backgroundColor: const Color.fromARGB(255, 104, 96, 248),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text(
+          'Piket Gudang',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Nama Anggota',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            TextField(
+              controller: _nameController,
+              decoration: InputDecoration(
+                hintText: 'Masukkan nama anggota',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                errorText: _nameError,
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Pilih Tanggal',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            GestureDetector(
+              onTap: _pickDate,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(8.0),
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      _selectedDate == null
+                          ? 'Pilih Tanggal'
+                          : formatDate(_selectedDate!),
+                      style: const TextStyle(fontSize: 16, color: Colors.black),
+                    ),
+                    const Icon(Icons.calendar_today, color: Colors.grey),
+                  ],
+                ),
+              ),
+            ),
+            
