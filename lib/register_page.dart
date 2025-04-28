@@ -132,7 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       'Daftar',
                       style: TextStyle(
                         fontSize: 18,
-                        color: Color.fromARGB(255, 255, 255, 255), // Change "Colors.red" to your desired color
+                        color: Color.fromARGB(255, 255, 255, 255), 
                       ),
                     ),
                   ),
@@ -222,4 +222,34 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  
+  void _handleRegister() {
+    if (_formKey.currentState!.validate()) {
+      String password = _passwordController.text.trim();
+      String confirmPassword = _confirmPasswordController.text.trim();
+
+      if (password != confirmPassword) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Password dan Konfirmasi Password harus sama')),
+        );
+        return;
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Pendaftaran Berhasil!')),
+      );
+
+      Future.delayed(const Duration(seconds: 1), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginPage(
+              registeredEmail: _emailController.text.trim(),
+              registeredPassword: _passwordController.text.trim(),
+              registeredName: _nameController.text.trim(),
+            ),
+          ),
+        );
+      });
+    }
+  }
+}
