@@ -149,4 +149,27 @@ class _LoginPageState extends State<LoginPage> {
                   textAlign: TextAlign.center,
                 ),
               ),
-  }
+              const SizedBox(height: 40),
+              const SizedBox(height: 8),
+              _buildTextField(
+                controller: _emailController,
+                label: 'Email',
+                hintText: 'Masukkan Email',
+                icon: Icons.email,
+                validatorMessage: 'Email tidak boleh kosong',
+              ),
+              const SizedBox(height: 20),
+              _buildTextField(
+                controller: _passwordController,
+                label: 'Password',
+                hintText: 'Masukkan Password',
+                icon: Icons.lock,
+                validatorMessage: 'Password tidak boleh kosong',
+                obscureText: _obscurePassword,
+                toggleVisibility: () {
+                  setState(() {
+                    _obscurePassword = !_obscurePassword;
+                  });
+                },
+              ),
+              
