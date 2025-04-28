@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/data_piket.dart';
+import 'package:ucp1/data_pelanggan.dart';
 
 class HomePage extends StatelessWidget {
   final String userName;
@@ -125,6 +126,13 @@ class HomePage extends StatelessWidget {
                           icon: Icons.group_add,
                           label: 'Data Pelanggan',
                           onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const DataPelangganPage(),
+                              ),
+                            );
                           },
                         ),
                       ),
