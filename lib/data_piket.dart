@@ -18,4 +18,26 @@ class _DataPiketPageState extends State<DataPiketPage> {
   String? _dateError;
   String? _taskError;
 
- 
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _taskController.dispose();
+    super.dispose();
+  }
+
+  String formatDate(DateTime date) {
+    final List<String> hariIndo = [
+      'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'
+    ];
+    final List<String> bulanIndo = [
+      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+    String dayName = hariIndo[date.weekday - 1];
+    String day = date.day.toString().padLeft(2, '0');
+    String month = bulanIndo[date.month - 1];
+    String year = date.year.toString();
+    return '$dayName, $day $month $year';
+  }
+
+  
