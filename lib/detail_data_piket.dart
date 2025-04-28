@@ -12,4 +12,17 @@ class DetailPiketPage extends StatelessWidget {
     required this.task,
   }) : super(key: key);
 
- 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white, 
+      appBar: AppBar(
+        toolbarHeight: 90,
+        backgroundColor: const Color.fromARGB(255, 104, 96, 248),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        
