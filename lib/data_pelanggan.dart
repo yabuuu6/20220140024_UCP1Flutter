@@ -33,4 +33,56 @@ class _DataPelangganPageState extends State<DataPelangganPage> {
     super.dispose();
   }
 
-  
+  void _saveForm() {
+    setState(() {
+      _nameError = null;
+      _emailError = null;
+      _phoneError = null;
+      _addressError = null;
+      _provinceError = null;
+      _zipcodeError = null;
+
+      bool hasError = false;
+      if (_nameController.text.isEmpty) {
+        _nameError = 'Nama pelanggan tidak boleh kosong';
+        hasError = true;
+      }
+      if (_emailController.text.isEmpty) {
+        _emailError = 'Email tidak boleh kosong';
+        hasError = true;
+      }
+      if (_phoneController.text.isEmpty) {
+        _phoneError = 'No Hp tidak boleh kosong';
+        hasError = true;
+      }
+      if (_addressController.text.isEmpty) {
+        _addressError = 'Alamat tidak boleh kosong';
+        hasError = true;
+      }
+      if (_provinceController.text.isEmpty) {
+        _provinceError = 'Provinsi tidak boleh kosong';
+        hasError = true;
+      }
+      if (_zipcodeController.text.isEmpty) {
+        _zipcodeError = 'Kode Pos tidak boleh kosong';
+        hasError = true;
+      }
+
+      if (!hasError) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailPelangganPage(
+              name: _nameController.text,
+              email: _emailController.text,
+              phone: _phoneController.text,
+              address: _addressController.text,
+              province: _provinceController.text,
+              zipcode: _zipcodeController.text,
+            ),
+          ),
+        );
+      }
+    });
+  }
+
