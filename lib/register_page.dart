@@ -19,23 +19,28 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
 
- @override
+  @override
   Widget build(BuildContext context) {
-   return Scaffold(
-    backgroundColor: Colors.white, 
-    body: Container(
-    decoration: const BoxDecoration(
-      color: Colors.white, 
-    ),
-    child: SingleChildScrollView(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Form(
-          key: _formKey,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+        ),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Form(
+            key: _formKey,
             child: Column(
               children: [
-                const SizedBox(height: 80),
-                const FlutterLogo(size: 100),
+                const SizedBox(height: 70),
+                Center(
+                  child: Image.asset(
+                    'assets/logo.jpg',
+                    width: 250,
+                    height: 200,
+                  ),
+                ),
                 const SizedBox(height: 20),
                 const Text(
                   'DAFTAR AKUN BARU',
@@ -132,7 +137,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       'Daftar',
                       style: TextStyle(
                         fontSize: 18,
-                        color: Color.fromARGB(255, 255, 255, 255), 
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
                     ),
                   ),
@@ -161,11 +166,10 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
         ),
-      )
-    )
-  );
-}
- 
+      ),
+    );
+  }
+
   Widget _buildTextField({
     required TextEditingController controller,
     required String label, 

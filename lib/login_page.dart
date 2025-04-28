@@ -123,8 +123,8 @@ class _LoginPageState extends State<LoginPage> {
   );
 }
 
-  @override
-  Widget build(BuildContext context) {
+ @override
+Widget build(BuildContext context) {
   return Scaffold(
     backgroundColor: Color.fromARGB(255, 255, 255, 255),
     body: SafeArea(
@@ -135,8 +135,14 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 40),
-              const Center(child: FlutterLogo(size: 100)),
+              const SizedBox(height: 20),
+              Center(
+                child: Image.asset(
+                  'assets/logo.jpg',
+                  width: 250, 
+                  height: 200,
+                ),
+              ),
               const SizedBox(height: 40),
               const Center(
                 child: Text(
