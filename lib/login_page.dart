@@ -35,4 +35,30 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  void _login() {
+    if (_formKey.currentState?.validate() ?? false) {
+      String email = _emailController.text.trim();
+      String password = _passwordController.text.trim();
+
+      if (email == widget.registeredEmail && password == widget.registeredPassword) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Selamat datang, ${widget.registeredName ?? "User"}!')),
+        );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomePage(
+              userName: email,
+              role: 'User',
+            ),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Email atau Password salah!')),
+        );
+      }
+    }
+  }
+
   
