@@ -83,4 +83,67 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-     
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset(
+                  'assets/banner.png',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 150,
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: buildMenuCard(
+                          icon: Icons.assignment_outlined,
+                          label: 'Data Piket',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const DataPiketPage()),
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: buildMenuCard(
+                          icon: Icons.group_add,
+                          label: 'Data Pelanggan',
+                          onTap: () {
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  buildMenuCard(
+                    icon: Icons.receipt_long,
+                    label: 'Barang Masuk/Keluar',
+                    isFullWidth: true,
+                    onTap: () {
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
