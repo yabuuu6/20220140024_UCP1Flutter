@@ -65,4 +65,53 @@ class _BarangMasukPageState extends State<BarangMasukPage> {
     }
   }
 
-  
+  void _submitForm() {
+    setState(() {
+      _transactionDateError = null;
+      _transactionTypeError = null;
+      _itemTypeError = null;
+      _quantityError = null;
+      _unitPriceError = null;
+      bool hasError = false;
+      if (_transactionDate == null) {
+        _transactionDateError = "Tanggal tidak boleh kosong";
+        hasError = true;
+      }
+      if (_selectedTransactionType == null) {
+        _transactionTypeError = "Jenis transaksi harus dipilih";
+        hasError = true;
+      }
+      if (_selectedItemType == null) {
+        _itemTypeError = "Jenis barang harus dipilih";
+        hasError = true;
+      }
+      if (_quantityController.text.isEmpty) {
+        _quantityError = "Jumlah barang tidak boleh kosong";
+        hasError = true;
+      }
+      if (_unitPriceController.text.isEmpty) {
+        _unitPriceError = "Harga satuan tidak boleh kosong";
+        hasError = true;
+      }
+      if (!hasError) {
+        final int quantity = int.tryParse(_quantityController.text) ?? 0;
+        final double unitPrice = _defaultPrices[_selectedItemType]!;
+        final double computedTotalPrice = quantity * unitPrice;
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => BarangMasukDetailPage(
+              transactionDate: _transactionDate!,
+              transactionType: _selectedTransactionType!,
+              itemType: _selectedItemType!,
+              quantity: quantity,
+              unitPrice: unitPrice,
+              computedTotalPrice: computedTotalPrice,
+            ),
+          ),
+        );
+      } 
+    });
+  }
+
+   
