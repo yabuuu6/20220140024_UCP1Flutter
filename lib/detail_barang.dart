@@ -74,3 +74,43 @@ class BarangMasukDetailPage extends StatelessWidget {
       ),
     );
   }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Center(
+                child: Icon(
+                  Icons.check_circle,
+                  size: 100,
+                  color: Colors.green,
+                ),
+              ),
+              const SizedBox(height: 16),
+              const Center(
+                child: Text(
+                  "Data Berhasil Disimpan!",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              detailRow("Tanggal", formatDate(transactionDate)),
+              const Divider(thickness: 1, color: Colors.grey),
+              detailRow("Jenis Transaksi", transactionType),
+              const Divider(thickness: 1, color: Colors.grey),
+              detailRow("Jenis Barang", itemType),
+              const Divider(thickness: 1, color: Colors.grey),
+              detailRow("Jumlah Barang", quantity.toString()),
+              const Divider(thickness: 1, color: Colors.grey),
+              detailRow("Harga Satuan", "Rp. ${unitPrice.toStringAsFixed(0)}"),
+              const Divider(thickness: 1, color: Colors.grey),
+              detailRow("Total Harga", "Rp. ${computedTotalPrice.toStringAsFixed(0)}"),
+              const Spacer(),
