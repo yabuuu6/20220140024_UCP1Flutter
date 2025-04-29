@@ -286,4 +286,30 @@ class _BarangMasukPageState extends State<BarangMasukPage> {
                   ),
                 ],
               ),
-             
+              const SizedBox(height: 24),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: _submitForm,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 104, 96, 248),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  ),
+                  child: const Text(
+                    "Submit", 
+                    style: TextStyle(
+                      fontSize: 16, 
+                      fontWeight: 
+                      FontWeight.bold, 
+                      color: Colors.white
+                      )),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
