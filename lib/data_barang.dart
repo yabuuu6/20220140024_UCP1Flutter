@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/detail_barang.dart';
 
 
 class BarangMasukPage extends StatefulWidget {

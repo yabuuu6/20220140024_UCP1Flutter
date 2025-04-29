@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/data_piket.dart';
 import 'package:ucp1/data_pelanggan.dart';
+import 'package:ucp1/data_barang.dart';
 
 class HomePage extends StatelessWidget {
   final String userName;
@@ -138,12 +139,18 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16),
+                   const SizedBox(height: 16),
                   buildMenuCard(
                     icon: Icons.receipt_long,
                     label: 'Barang Masuk/Keluar',
                     isFullWidth: true,
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BarangMasukPage(),
+                        ),
+                      );
                     },
                   ),
                 ],
