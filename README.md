@@ -1,4 +1,4 @@
-![Screenshot_1745925450](https://github.com/user-attachments/assets/bdd4c017-5642-4565-a8ad-72d0b205c25e)Login Page
+Login Page
 
 ![Screenshot_1745924325](https://github.com/user-attachments/assets/d7cf4ed6-218e-4edb-9271-e631ba500e38)
 
@@ -64,6 +64,8 @@ Pendataan Barang Page
 ![Screenshot_1745925445](https://github.com/user-attachments/assets/29eabbe3-4744-461d-af16-5921bccea60c)
 
 ![Screenshot_1745925450](https://github.com/user-attachments/assets/05e078fb-4fd4-45e8-ac7a-65058d605d9d)
+
+![Screenshot_1745925450](https://github.com/user-attachments/assets/fa612aaa-ed71-4591-98c4-359cfa2f24fc)
 
 ![Screenshot_1745925453](https://github.com/user-attachments/assets/940f18ec-eec3-4b5b-82f0-30fcf97191b7)
 
