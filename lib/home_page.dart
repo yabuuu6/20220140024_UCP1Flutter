@@ -5,9 +5,11 @@ import 'package:ucp1/data_barang.dart';
 
 class HomePage extends StatelessWidget {
   final String userName;
-  final String role;
 
-  const HomePage({super.key, required this.userName, required this.role});
+  const HomePage({
+    super.key,
+    required this.userName,
+  });
 
   Widget buildMenuCard({
     required IconData icon,
@@ -69,92 +71,80 @@ class HomePage extends StatelessWidget {
                     fontSize: 18,
                   ),
                 ),
-                Text(
-                  role,
-                  style: const TextStyle(color: Colors.white, fontSize: 12),
-                ),
               ],
             ),
             const Spacer(),
             IconButton(
+              icon: const Icon(Icons.logout, color: Colors.white),
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/login');
               },
-              icon: const Icon(Icons.logout, color: Colors.white),
             ),
           ],
         ),
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Column(
           children: [
-            const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  'assets/benner.jpg',
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: 150,
-                ),
+            // Banner
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                'assets/benner.jpg',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 150,
               ),
             ),
             const SizedBox(height: 24),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: buildMenuCard(
-                          icon: Icons.assignment_outlined,
-                          label: 'Data Piket',
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const DataPiketPage()),
-                            );
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: buildMenuCard(
-                          icon: Icons.group_add,
-                          label: 'Data Pelanggan',
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const DataPelangganPage(),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                   const SizedBox(height: 16),
-                  buildMenuCard(
-                    icon: Icons.receipt_long,
-                    label: 'Barang Masuk/Keluar',
-                    isFullWidth: true,
+
+            Row(
+              children: [
+                Expanded(
+                  child: buildMenuCard(
+                    icon: Icons.assignment_outlined,
+                    label: 'Data Piket',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const BarangMasukPage(),
+                          builder: (context) => const DataPiketPage(),
                         ),
                       );
                     },
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: buildMenuCard(
+                    icon: Icons.group_add,
+                    label: 'Data Pelanggan',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DataPelangganPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            buildMenuCard(
+              icon: Icons.receipt_long,
+              label: 'Barang Masuk/Keluar',
+              isFullWidth: true,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BarangMasukPage(),
+                  ),
+                );
+              },
             ),
           ],
         ),

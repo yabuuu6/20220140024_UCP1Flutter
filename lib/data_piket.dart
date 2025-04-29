@@ -27,11 +27,27 @@ class _DataPiketPageState extends State<DataPiketPage> {
 
   String formatDate(DateTime date) {
     final List<String> hariIndo = [
-      'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'
+      'Senin',
+      'Selasa',
+      'Rabu',
+      'Kamis',
+      'Jumat',
+      'Sabtu',
+      'Minggu'
     ];
     final List<String> bulanIndo = [
-      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+      'Januari',
+      'Februari',
+      'Maret',
+      'April',
+      'Mei',
+      'Juni',
+      'Juli',
+      'Agustus',
+      'September',
+      'Oktober',
+      'November',
+      'Desember'
     ];
     String dayName = hariIndo[date.weekday - 1];
     String day = date.day.toString().padLeft(2, '0');
@@ -195,15 +211,21 @@ class _DataPiketPageState extends State<DataPiketPage> {
                   color: Colors.white,
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      _selectedDate == null
-                          ? 'Pilih Tanggal'
-                          : formatDate(_selectedDate!),
-                      style: const TextStyle(fontSize: 16, color: Colors.black),
-                    ),
                     const Icon(Icons.calendar_today, color: Colors.grey),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        _selectedDate == null
+                            ? 'Pilih Tanggal'
+                            : formatDate(_selectedDate!),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: _selectedDate == null ? Colors.grey : Colors.black,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -260,7 +282,9 @@ class _DataPiketPageState extends State<DataPiketPage> {
                     child: const Text(
                       'Tambah',
                       style: TextStyle(
-                          color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
