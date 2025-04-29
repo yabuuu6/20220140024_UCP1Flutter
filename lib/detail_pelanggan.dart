@@ -19,10 +19,10 @@ class DetailPelangganPage extends StatelessWidget {
     required this.zipcode,
   });
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+         appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
@@ -32,14 +32,15 @@ class DetailPelangganPage extends StatelessWidget {
             );
           },
         ),
-        title: const Text(
-          'Detail Pelanggan',
-          style: TextStyle(fontSize: 20, color: Colors.white),
+        title: Text(
+          'Detail ${name}',
+          style: const TextStyle(fontSize: 20, color: Colors.white),
         ),
         centerTitle: true,
         toolbarHeight: 90,
         backgroundColor: const Color.fromARGB(255, 104, 96, 248),
       ),
+
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),

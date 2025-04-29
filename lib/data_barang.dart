@@ -56,15 +56,21 @@ class _BarangMasukPageState extends State<BarangMasukPage> {
   }
 
   void _updateComputedPrice() {
-    if (_selectedItemType != null && _defaultPrices.containsKey(_selectedItemType)) {
-      int quantity = int.tryParse(_quantityController.text) ?? 0;
-      double defaultPrice = _defaultPrices[_selectedItemType]!;
+  if (_selectedItemType != null && _defaultPrices.containsKey(_selectedItemType)) {
+    int quantity = int.tryParse(_quantityController.text) ?? 0;
+    double defaultPrice = _defaultPrices[_selectedItemType]!;
+
+    if (_quantityController.text.isEmpty || quantity == 0) {
+      _unitPriceController.text = defaultPrice.toStringAsFixed(0);
+    } else {
       double computedPrice = quantity * defaultPrice;
       _unitPriceController.text = computedPrice.toStringAsFixed(0);
-    } else {
-      _unitPriceController.clear();
     }
+  } else {
+    _unitPriceController.clear();
   }
+}
+
 
   void _submitForm() {
     setState(() {

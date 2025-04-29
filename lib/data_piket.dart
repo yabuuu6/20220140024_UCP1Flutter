@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ucp1/detail_data_piket.dart';
+import 'detail_data_piket.dart';
 
 class DataPiketPage extends StatefulWidget {
   const DataPiketPage({super.key});
@@ -90,7 +90,7 @@ class _DataPiketPageState extends State<DataPiketPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Tugas piket berhasil ditambahkan!'),
-            backgroundColor: Color.fromARGB(255, 104, 96, 248),
+            backgroundColor: Colors.green,
             behavior: SnackBarBehavior.floating,
           ),
         );
@@ -113,55 +113,48 @@ class _DataPiketPageState extends State<DataPiketPage> {
   }
 
   Widget _buildTaskItem(int index) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 104, 96, 248),
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: ListTile(
-        title: Text(
-          _tasks[index]['task']!,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+  return Container(
+    margin: const EdgeInsets.only(bottom: 8),
+    decoration: BoxDecoration(
+      color: const Color.fromARGB(255, 104, 96, 248),
+      borderRadius: BorderRadius.circular(8.0),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.3),
+          spreadRadius: 2,
+          blurRadius: 5,
+          offset: const Offset(0, 3),
         ),
-        subtitle: Text(
-          "Tanggal: ${_tasks[index]['date']}",
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-          ),
-        ),
-        trailing: const Icon(
-          Icons.arrow_forward_ios,
+      ],
+    ),
+    child: ListTile(
+      title: Text(
+        _tasks[index]['task']!,
+        style: const TextStyle(
           color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
         ),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => DetailPiketPage(
-                name: _tasks[index]['name']!,
-                date: _tasks[index]['date']!,
-                task: _tasks[index]['task']!,
-              ),
-            ),
-          );
-        },
       ),
-    );
-  }
+      trailing: const Icon(
+        Icons.arrow_forward_ios,
+        color: Colors.white,
+      ),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailPiketPage(
+              name: _tasks[index]['name']!,
+              date: _tasks[index]['date']!,
+              task: _tasks[index]['task']!,
+            ),
+          ),
+        );
+      },
+    ),
+  );
+}
 
   @override
   Widget build(BuildContext context) {
