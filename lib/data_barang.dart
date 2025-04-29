@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class BarangMasukPage extends StatefulWidget {
   const BarangMasukPage({Key? key}) : super(key: key);
 
@@ -27,4 +28,30 @@ class _BarangMasukPageState extends State<BarangMasukPage> {
   String? _quantityError;
   String? _unitPriceError;
 
- 
+  @override
+  void dispose() {
+    _quantityController.dispose();
+    _unitPriceController.dispose();
+    super.dispose();
+  }
+
+  String formatDate(DateTime date) {
+    return "${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}";
+  }
+
+  Future<void> _pickTransactionDate() async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+    if (picked != null) {
+      setState(() {
+        _transactionDate = picked;
+        _transactionDateError = null;
+      });
+    }
+  }
+
+  
